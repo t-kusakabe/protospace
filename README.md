@@ -25,7 +25,7 @@
 
 + like
   + user_id
-  + prototypze_id
+  + prototype_id
 
 
 ##Association
@@ -34,6 +34,6 @@
 + prototype has_many protocomments
 + protocomments belongs_to prototype
 + prototype belongs_to tag
-+ belongs_to user
-+ belongs_to prototype
++ like belongs_to user
++ like belongs_to prototype
 
