@@ -47,5 +47,6 @@ end
 
 gem 'pry-rails'
 gem 'haml-rails'
+gem 'bootstrap-sass'
 gem 'devise'
 gem 'erb2haml'
