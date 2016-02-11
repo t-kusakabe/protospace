@@ -50,3 +50,5 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'erb2haml'
+
+
