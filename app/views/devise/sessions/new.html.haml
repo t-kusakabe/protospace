@@ -1,0 +1,21 @@
+.container
+  %h2.form-signin-heading Please sign in
+  %form#new_user.new_user{ accept: { charset: 'UTF-8' }, action: '/users/sign_in', method: 'post' }
+    %input{ name: 'utf8', type: 'hidden', value: '✓' }/
+    %input{ name: 'authenticity_token', type: 'hidden', value: 'pzs6LiAqslPauoS7G46UMKZYJWakf+knwLv/pbm6ISWLQTZuFX5FUSi2kAddxeQIb5/rcHhwm5V93njKd7RRrQ==' }/
+    .form-inputs.form-signin
+      %label.sr-only{ for: 'inputEmail' }
+      %input#inputEmail.form-control{ autocomplete: 'off', autofocus: 'autofocus', name: 'user[email]', placeholder: 'Input Email', required: 'required', type: 'email', value: '' }/
+      %label.sr-only{ for: 'inputPassword' }
+      %input#inputPassword.form-control{ autocomplete: 'off', name: 'user[password]', placeholder: 'Input Password', required: 'required', type: 'password' }/
+      .checkbox
+        %label
+          %input{ name: 'user[remember_me]', type: 'hidden', value: '0' }/
+          %input#user_remember_me{ name: 'user[remember_me]', type: 'checkbox', value: '1' }/
+          Remember me
+    .form-actions.form-signin
+      %input.btn.btn-lg.btn-primary.btn-block{ data: { disable: { with: 'WAIT...' }}, name: 'commit', type: 'submit', value: 'SIGN IN' }/
+  .text-center
+    %p
+      Not a member?
+    = link_to 'Sign up NOW!', '/users/sign_up'
