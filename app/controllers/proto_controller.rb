@@ -3,13 +3,21 @@ class ProtoController < ApplicationController
   end
 
   def new
-    @proto = Prototype.new
-    @proto.proto_thumbnails.build
+    @prototype = Prototype.new
+    @prototype.proto_thumbnails.build
   end
 
   def create
-    Prototype.create(create_params)
-    redirect_to action: index
+    prototype = Prototype.create(create_params)
+    if prototype.save
+      redirect_to action: index
+    else
+      @prototype = Prototype.new(create_params)
+      @prototype.proto_thumbnails.build
+      @prototype.valid?
+      flash.now[:alert] = 'Not Input'
+      render :new
+    end
   end
 
   private

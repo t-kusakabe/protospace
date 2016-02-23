@@ -1,10 +1,10 @@
-= form_for @proto do |f|
+= form_for @prototype do |f|
   .container.proto-new
     .col-md-8.col-md-offset-2
       %header.row.user-nav.row
         .col-md-12
-          .proto-new-title= f.text_field :title, placeholder: 'Title', autocomplete: 'off'
-        = f.fields_for :proto_thumbnails do |thumbnails_f|    
+          .proto-new-title= f.text_field :title, placeholder: "Title #{flash[:alert]}", autocomplete: 'off'
+        = f.fields_for :proto_thumbnails do |thumbnails_f|
           .row
             .col-md-12
               .cover-image-upload
@@ -22,8 +22,8 @@
                     %span +
         .row.proto-description
           .col-md-12
-            = f.text_field :catch_copy, placeholder: 'Catch Copy', autocomplete: 'off'
-            = f.text_area :concept, placeholder: 'Concept', cols: '30', rows: '4', autocomplete: 'off'
+            = f.text_field :catch_copy, placeholder: "Catch Copy #{flash[:alert]}", autocomplete: 'off'
+            = f.text_area :concept, placeholder: "Concept #{flash[:alert]}", cols: '30', rows: '4', autocomplete: 'off'
           .col-md-12
             %h4 Tag List
             .row
