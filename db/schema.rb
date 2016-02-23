@@ -11,22 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160222101251) do
-
-  create_table "proto_thumbnails", force: :cascade do |t|
-    t.string   "main_thumbnail", limit: 255
-    t.string   "sub_thumbnail1", limit: 255
-    t.string   "sub_thumbnail2", limit: 255
-    t.integer  "prototype_id",   limit: 4
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20160223140435) do
 
   create_table "prototypes", force: :cascade do |t|
     t.text     "title",      limit: 65535
     t.string   "catch_copy", limit: 255
     t.string   "concept",    limit: 255
     t.integer  "user_id",    limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "thumbnails", force: :cascade do |t|
+    t.integer  "status",       limit: 4
+    t.string   "thumbnail",    limit: 255
+    t.integer  "prototype_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
