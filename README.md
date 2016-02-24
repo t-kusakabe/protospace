@@ -12,11 +12,13 @@
 
 + prototype
   + title
-  + main_thumbnail
-  + sub_thumbnail
   + catch_copy
   + concept
   + user_id
+
++ proto_thumbnail
+  + thumbnail
+  + prototype_id
 
 + protocomment
   + comment

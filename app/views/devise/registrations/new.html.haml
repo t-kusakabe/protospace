@@ -1,5 +1,4 @@
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
 
   .container.user-new{ action: '' }
     .col-md-8.col-md-offset-2
@@ -13,8 +12,7 @@
            
             .user-image.col-md-2
               %button.btn.btn-primary Add image
-           
-              %input{ type: 'file' }/
+              = f.file_field :avatar 
           
           .user-email= f.email_field :email, placeholder: 'E-Mail'
           
