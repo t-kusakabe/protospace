@@ -51,5 +51,3 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'erb2haml'
 gem 'carrierwave'
-
-
