@@ -10,7 +10,7 @@ class ProtoController < ApplicationController
   def create
     prototype = Prototype.new(create_params)
     if prototype.save
-      redirect_to action: index
+      redirect_to root_path
     else
       @prototype = Prototype.new(create_params)
       @prototype.thumbnails.build
@@ -22,6 +22,6 @@ class ProtoController < ApplicationController
 
   private
   def create_params
-    params.require(:prototype).permit(:title, :catch_copy, :concept, thumbnails_attributes: [:status, :thumbnail]).merge(user_id: current_user.id)
+    params.require(:prototype).permit(:title, :catch_copy, :concept, thumbnails_attributes: [:thumbnail, :status]).merge(user_id: current_user.id)
   end
 end
