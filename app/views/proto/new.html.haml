@@ -28,8 +28,8 @@
                   %span +
         .row.proto-description
           .col-md-12
-            = f.text_field :catch_copy, placeholder: "Catch Copy #{flash[:alert]}", autocomplete: 'off'
-            = f.text_area :concept, placeholder: "Concept #{flash[:alert]}", cols: '30', rows: '4', autocomplete: 'off'
+            = f.text_field :catch_copy, placeholder: "Catch Copy #{flash[:alert]}", autocomplete: 'off', maxlength: '255'
+            = f.text_area :concept, placeholder: "Concept #{flash[:alert]}", cols: '30', rows: '4', autocomplete: 'off', maxlength: '255'
           .col-md-12
             %h4 Tag List
             .row
