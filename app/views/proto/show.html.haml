@@ -1,5 +1,6 @@
 .container.proto-page
   %header.row.user-nav
+    -# ユーザー情報
     .col-md-6
       .media
         .media-left
@@ -12,20 +13,24 @@
             = link_to current_user.name, "/users/#{current_user.id}"
             %span.degree= current_user.profile
 
+    -# LIKE
     .col-md-6.text-right
       %button.btn.btn-default
         = image_tag("icon_heart.svg")
         Like
         %span.num 20
+  -# main画像
   .row
     .col-md-9
-      = image_tag(@prototype.thumbnails.first.thumbnail.url, class: 'img-responsive')
+      = image_tag(@prototype.thumbnails.first.thumbnail.url, class: 'img-responsive', style: 'margin: 0 auto')
+    -# sub画像
     .col-md-3
       %ul.proto-sub-list.list-group
         - @prototype.thumbnails.each do |sub_thumbnail|
           - if sub_thumbnail.status == nil
             %li.list-group-item
               = image_tag(sub_thumbnail.thumbnail.url, class: 'img-responsive')
+  -# プロトタイプinfo
   .row.proto-description
     .col-md-3
       %h4 Catch Copy
@@ -40,6 +45,7 @@
           .btn.btn-default= link_to 'iPad', '#'
         %li
           .btn.btn-default= link_to 'wireframe', '#'
+  -# comment
   .row.proto-comments
     %h4.col-md-12
       Comments
