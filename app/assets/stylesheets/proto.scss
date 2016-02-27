@@ -7,3 +7,14 @@
     color: #F00;
   }
 }
+
+div {
+  .col-md-3 p {
+    width: 250px;
+  }
+
+  .col-md-6 p {
+    width: 550px;
+  }
+  word-wrap: break-word;
+}

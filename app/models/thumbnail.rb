@@ -3,6 +3,6 @@ class Thumbnail < ActiveRecord::Base
 
   mount_uploader :thumbnail, ImageUploader
 
-  enum status: { main: '0', sub: '1' }
+  enum status: [:main, :sub]
   validates :thumbnail, presence: true
 end

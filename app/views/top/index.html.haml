@@ -17,14 +17,20 @@
     - @prototypes.each do |prototype|
       .col-sm-4.col-md-3.proto-content
         .thumbnail
+          .user_operation
+            %ul.operation_list
+              %li
+                = link_to 'edit', '#'
+              %li
+                = link_to 'delete', '#'
           = link_to image_tag(prototype.thumbnails.first.thumbnail.url), "proto/#{prototype.id}"
           .caption
             %h3 Salvation Army on iPad App Wireframe
             .proto-meta
               .proto-user
-                = link_to 'by user', '#'
+                = link_to prototype.user.name, '#'
               .proto-posted
-                Apr 26
+                = prototype.created_at
             %ul.proto-tag-list.list-inline
               %li
                 .btn.btn-default= link_to 'iPad', '#'

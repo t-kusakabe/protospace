@@ -27,7 +27,7 @@
     .col-md-3
       %ul.proto-sub-list.list-group
         - @prototype.thumbnails.each do |sub_thumbnail|
-          - if sub_thumbnail.status == nil
+          - if sub_thumbnail.status == "sub"
             %li.list-group-item
               = image_tag(sub_thumbnail.thumbnail.url, class: 'img-responsive')
   -# プロトタイプinfo

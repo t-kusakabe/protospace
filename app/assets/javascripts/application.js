@@ -15,3 +15,14 @@
 //= require bootstrap.min
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+  $('.user_operation').hover(
+    function(){
+      $(this).find('.operation_list').css('display', 'block');
+    },
+    function(){
+      $('.operation_list').css('display', 'none');
+    }
+  );
+});
