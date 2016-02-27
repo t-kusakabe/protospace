@@ -21,6 +21,21 @@ class ProtoController < ApplicationController
     end
   end
 
+  def edit
+    @prototype = Prototype.find(params[:id])
+  end
+
+  def update
+    @prototype = Prototype.find(params[:id])
+    @prototype.update(create_params)
+    redirect_to :root
+  end
+
+  def destroy
+    Prototype.find(params[:id]).destroy
+    redirect_to :root
+  end
+
   private
   def create_params
     params.require(:prototype).permit(:title, :catch_copy, :concept, thumbnails_attributes: [:thumbnail, :status]).merge(user_id: current_user.id)
