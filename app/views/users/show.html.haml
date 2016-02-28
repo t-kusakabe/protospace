@@ -24,7 +24,7 @@
     - @prototypes.each do |prototype|
       .col-sm-4.col-md-3.proto-content
         .thumbnail
-          = link_to image_tag(prototype.thumbnails.first.thumbnail.url), "/proto/#{prototype.id}"
+          = link_to image_tag(prototype.thumbnails.first.thumbnail.url), prototype_path
           .caption
             %h3= prototype.title
             .proto-meta

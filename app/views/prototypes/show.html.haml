@@ -10,7 +10,7 @@
           %h4#top-aligned-media.media-heading
             = @prototype.title
           .proto-user
-            = link_to current_user.name, "/users/#{current_user.id}"
+            = link_to current_user.name, user_path
             %span.degree= current_user.profile
 
     -# LIKE

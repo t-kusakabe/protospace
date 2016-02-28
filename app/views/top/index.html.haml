@@ -6,9 +6,9 @@
   .container
     .row
       %ul.nav.nav-pills.col-lg-11
-        %li.active{role: 'presentation'}
+        %li.active{ role: 'presentation' }
           = link_to 'Popular PROTO', '#'
-        %li{role: 'presentation'}
+        %li{ role: 'presentation' }
           = link_to 'Newest PROTO', '#'
       = button_tag 'View Tags', class: 'btn btn-default col-lg-1'
 
@@ -21,15 +21,15 @@
             .user_operation
               %ul.operation_list
                 %li
-                  = link_to 'edit', "proto/#{prototype.id}/edit"
+                  = link_to 'edit', edit_prototype_path(prototype)
                 %li
-                  = link_to 'delete', "proto/#{prototype.id}", method: :delete
-          = link_to image_tag(prototype.thumbnails.first.thumbnail.url), "proto/#{prototype.id}"
+                  = link_to 'delete', prototype_path(prototype), method: :delete
+          = link_to image_tag(prototype.thumbnails.first.thumbnail.url), prototype_path(prototype)
           .caption
             %h3 Salvation Army on iPad App Wireframe
             .proto-meta
               .proto-user
-                = link_to prototype.user.name, '#'
+                = link_to prototype.user.name, user_path(prototype.user)
               .proto-posted
                 = prototype.created_at
             %ul.proto-tag-list.list-inline

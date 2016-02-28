@@ -1,5 +1,5 @@
 %h1= @thumbnail
-= form_for @prototype do |f|
+= form_for @prototype, url: "/proto/#{@prototype.id}", method: :patch do |f|
   .container.proto-new
     .col-md-8.col-md-offset-2
       %header.row.user-nav.row
