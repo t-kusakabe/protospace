@@ -13,5 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap.min
+//= require jquery.turbolinks
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+  $('.thumbnail').hover(
+    function(){
+      $(this).find('.operation_list').css('display', 'block');
+    },
+    function(){
+      $('.operation_list').css('display', 'none');
+    }
+  );
+});

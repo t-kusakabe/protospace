@@ -11,6 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
-/images/*
-/uploads/*
-*.jpeg
+images/
+uploads/
+*.coffee

@@ -51,5 +51,6 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'erb2haml'
 gem 'carrierwave'
-
-
+gem 'rmagick'
+gem 'kaminari'
+gem 'jquery-turbolinks'

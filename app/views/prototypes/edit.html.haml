@@ -1,5 +1,5 @@
 %h1= @thumbnail
-= form_for @prototype do |f|
+= form_for @prototype, url: "/proto/#{@prototype.id}", method: :patch do |f|
   .container.proto-new
     .col-md-8.col-md-offset-2
       %header.row.user-nav.row
@@ -9,27 +9,27 @@
           .col-md-12
             .cover-image-upload
               = f.fields_for :thumbnails do |thumbnails_f|
-                = thumbnails_f.hidden_field :status, value: Thumbnail.statuses[:main]
+                = thumbnails_f.hidden_field :status, value: "main"
                 = thumbnails_f.file_field :thumbnail
           .col-md-12
             %ul.proto-sub-list.list-group
               %li.list-group-item.col-md-4
                 .image-upload
                   = f.fields_for :thumbnails do |thumbnails_f|
-                    = thumbnails_f.hidden_field :status, value: Thumbnail.statuses[:sub]
+                    = thumbnails_f.hidden_field :status, value: "sub"
                     = thumbnails_f.file_field :thumbnail
               %li.list-group-item.col-md-4
                 .image-upload
                   = f.fields_for :thumbnails do |thumbnails_f|
-                    = thumbnails_f.hidden_field :status, value: Thumbnail.statuses[:sub]
+                    = thumbnails_f.hidden_field :status, value: "sub"
                     = thumbnails_f.file_field :thumbnail
               %li.list-group-item.col-md-4
                 .image-upload-plus
                   %span +
         .row.proto-description
           .col-md-12
-            = f.text_field :catch_copy, placeholder: "Catch Copy #{flash[:alert]}", autocomplete: 'off'
-            = f.text_area :concept, placeholder: "Concept #{flash[:alert]}", cols: '30', rows: '4', autocomplete: 'off'
+            = f.text_field :catch_copy, placeholder: "Catch Copy #{flash[:alert]}", autocomplete: 'off', maxlength: '255'
+            = f.text_area :concept, placeholder: "Concept #{flash[:alert]}", cols: '30', rows: '4', autocomplete: 'off', maxlength: '255'
           .col-md-12
             %h4 Tag List
             .row
