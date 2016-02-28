@@ -38,6 +38,6 @@ class ProtoController < ApplicationController
 
   private
   def create_params
-    params.require(:prototype).permit(:title, :catch_copy, :concept, thumbnails_attributes: [:thumbnail, :status]).merge(user_id: current_user.id)
+    params.require(:prototype).permit(:title, :catch_copy, :concept, thumbnails_attributes: [:thumbnail, :status, :thumbnail_cache]).merge(user_id: current_user.id)
   end
 end

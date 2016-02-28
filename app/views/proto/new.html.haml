@@ -8,18 +8,22 @@
         .row
           .col-md-12
             .cover-image-upload
+              = image_tag(@prototype.thumbnails.first.thumbnail.url) if @prototype.thumbnails.first.main?
               = f.fields_for :thumbnails do |thumbnails_f|
                 = thumbnails_f.hidden_field :status, value: "main"
                 = thumbnails_f.file_field :thumbnail
+                = thumbnails_f.hidden_field :thumbnail_cache
           .col-md-12
             %ul.proto-sub-list.list-group
               %li.list-group-item.col-md-4
                 .image-upload
+                  = image_tag(@prototype.thumbnails.second.thumbnail.url) if @prototype.thumbnails.second.present?
                   = f.fields_for :thumbnails do |thumbnails_f|
                     = thumbnails_f.hidden_field :status, value: "sub"
                     = thumbnails_f.file_field :thumbnail
               %li.list-group-item.col-md-4
                 .image-upload
+                  = image_tag(@prototype.thumbnails.third.thumbnail.url) if @prototype.thumbnails.third.present?
                   = f.fields_for :thumbnails do |thumbnails_f|
                     = thumbnails_f.hidden_field :status, value: "sub"
                     = thumbnails_f.file_field :thumbnail
