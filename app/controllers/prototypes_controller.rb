@@ -1,7 +1,7 @@
 class PrototypesController < ApplicationController
   def show
     @prototype = Prototype.find(params[:id])
-    @comments = Comment.all
+    @comments = Comment.where(prototype_id: params[:id])
     @comment = Comment.new
   end
 
@@ -14,6 +14,7 @@ class PrototypesController < ApplicationController
     if params[:commit] == 'comment'
       Comment.create(comment_params)
     end
+    @comments = Comment.where(prototype_id: params[:prototype_id])
 
     if params[:commit] == 'Publish'
       prototype = Prototype.new(create_params)

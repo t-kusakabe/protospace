@@ -53,9 +53,8 @@
       %br
       = form_tag prototypes_path, remote: true do
         .col-md-12
-          = text_area_tag :comment
+          = text_area_tag :comment, '', placeholder: 'comment', maxlength: 200
           = hidden_field_tag :prototype_id, params[:id]
           = submit_tag 'comment'
-    .col-md-8
-      .media
-        .media-left
+          .comment_content
+            = render partial: 'comment', collection: @comments
