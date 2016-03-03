@@ -1,4 +1,5 @@
-.cmt_unity
+- comments.each do |comment|
   = image_tag(comment.user.avatar.url, class: 'user_thumbnail')
   %strong= comment.user.name
-  %span.cmt= comment.comment
+  %span= comment.comment
+  %br

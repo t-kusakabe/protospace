@@ -2,7 +2,6 @@ class PrototypesController < ApplicationController
   def show
     @prototype = Prototype.find(params[:id])
     @comments = Comment.where(prototype_id: params[:id])
-    @comment = Comment.new
   end
 
   def new
@@ -11,22 +10,15 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    if params[:commit] == 'comment'
-      Comment.create(comment_params)
-    end
-    @comments = Comment.where(prototype_id: params[:prototype_id])
-
-    if params[:commit] == 'Publish'
-      prototype = Prototype.new(create_params)
-      if prototype.save
-        redirect_to root_path
-      else
-        @prototype = Prototype.new(create_params)
-        @prototype.thumbnails.build
-        @prototype.valid?
-        flash.now[:alert] = 'Not Input'
-        render :new
-      end
+    prototype = Prototype.new(create_params)
+    if prototype.save
+      redirect_to root_path
+    else
+      @prototype = Prototype.new(create_params)
+      @prototype.thumbnails.build
+      @prototype.valid?
+      flash.now[:alert] = 'Not Input'
+      render :new
     end
   end
 
@@ -49,10 +41,5 @@ class PrototypesController < ApplicationController
   # プロトタイプ投稿時のストロングパラメータ
   def create_params
     params.require(:prototype).permit(:title, :catch_copy, :concept, thumbnails_attributes: [:thumbnail, :status, :thumbnail_cache]).merge(user_id: current_user.id)
-  end
-
-  # コメント投稿時のストロングパラメータ
-  def comment_params
-    params.permit(:comment, :prototype_id).merge(user_id: current_user.id)
   end
 end

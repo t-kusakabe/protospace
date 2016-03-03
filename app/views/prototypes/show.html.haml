@@ -51,10 +51,10 @@
       Comments
       %span.num (10)
       %br
-      = form_tag prototypes_path, remote: true do
+      = form_tag prototype_comments_path(params[:id]), method: :post, remote: true do
         .col-md-12
           = text_area_tag :comment, '', placeholder: 'comment', maxlength: 200
           = hidden_field_tag :prototype_id, params[:id]
           = submit_tag 'comment'
           .comment_content
-            = render partial: 'comment', collection: @comments
+            = render template: 'prototypes/_comment', locals: { comments: @comments }

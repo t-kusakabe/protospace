@@ -1,0 +1,2 @@
+$('#comment').val('');
+$('.comment_content').html("<%= j(render template: 'prototypes/_comment', locals: {comments: @comments}) %>");
