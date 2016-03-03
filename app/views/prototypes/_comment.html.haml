@@ -1,3 +1,4 @@
 .cmt_unity
-  = image_tag(current_user.avatar.url, class: 'user_thumbnail')
+  = image_tag(comment.user.avatar.url, class: 'user_thumbnail')
+  %strong= comment.user.name
   %span.cmt= comment.comment
