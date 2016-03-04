@@ -10,7 +10,7 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    prototype = Prototype.new(create_params)
+    prototype = current_user.prototypes.new(create_params)
     if prototype.save
       redirect_to root_path
     else
@@ -38,8 +38,7 @@ class PrototypesController < ApplicationController
   end
 
   private
-  # プロトタイプ投稿時のストロングパラメータ
   def create_params
-    params.require(:prototype).permit(:title, :catch_copy, :concept, thumbnails_attributes: [:thumbnail, :status, :thumbnail_cache]).merge(user_id: current_user.id)
+    params.require(:prototype).permit(:title, :catch_copy, :concept, thumbnails_attributes: [:thumbnail, :status, :thumbnail_cache])
   end
 end
