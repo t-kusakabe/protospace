@@ -50,6 +50,11 @@
     %h4.col-md-12
       Comments
       %span.num (10)
-    .col-md-8
-      .media
-        .media-left
+      %br
+      = form_tag prototype_comments_path(params[:id]), method: :post, remote: true do
+        .col-md-12
+          = text_area_tag :content, '', placeholder: 'comment', maxlength: 200
+          = hidden_field_tag :prototype_id, params[:id]
+          = submit_tag 'comment'
+          .comment_content
+            = render partial: 'comment', collection: @comments
