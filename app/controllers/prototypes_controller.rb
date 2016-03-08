@@ -2,7 +2,7 @@ class PrototypesController < ApplicationController
   def show
     @prototype = Prototype.find(params[:id])
     @comments = Comment.where(prototype_id: params[:id])
-    @likes = Like.where(prototype_id: params[:id])
+    @likes = Like.where(prototype_id: params[:id]).count
     @like = Like.where(user_id: current_user.id, prototype_id: params[:id])
   end
 
