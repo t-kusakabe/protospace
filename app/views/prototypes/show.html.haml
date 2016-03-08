@@ -14,11 +14,9 @@
             %span.degree= current_user.profile
 
     -# LIKE
-    .col-md-6.text-right
-      %button.btn.btn-default
-        = image_tag("icon_heart.svg")
-        Like
-        %span.num 20
+    .col-md-6.text-right.like_button
+      = render partial: 'prototypes/like'
+
   -# main画像
   .row
     .col-md-9

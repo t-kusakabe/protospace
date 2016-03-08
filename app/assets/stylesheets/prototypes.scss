@@ -16,6 +16,18 @@ div {
   word-wrap: break-word;
 }
 
+.like_button {
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+  .btn-danger a {
+    color: #FFF;
+    text-decoration: none;
+  }
+}
+
+
 /* new.html.haml */
 .cover-image-upload {
   text-align: center;

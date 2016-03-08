@@ -1,0 +1,12 @@
+- if @like.blank?
+  = button_tag class: 'btn btn-default' do
+    = link_to prototype_likes_path(@prototype), method: :post, remote: true do
+      = image_tag('icon_heart.svg')
+      Like
+      %span.num= @likes
+- else
+  = button_tag class: 'btn btn-danger' do
+    = link_to prototype_like_path(@prototype, @like), method: :delete, remote: true do
+      = image_tag('icon_heart.svg')
+      Like
+      %span.num= @likes
