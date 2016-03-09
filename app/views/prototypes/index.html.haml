@@ -5,28 +5,4 @@
 
 = render partial: 'sort'
 
-.container.proto-list
-  .row
-    - @prototypes.each do |prototype|
-      .col-sm-4.col-md-3.proto-content
-        .thumbnail
-          - if current_user.id == prototype.user_id
-            .user_operation
-              %ul.operation_list
-                %li
-                  = link_to 'edit', edit_prototype_path(prototype)
-                %li
-                  = link_to 'delete', prototype_path(prototype), method: :delete
-          = link_to image_tag(prototype.thumbnails.first.thumbnail.url), prototype_path(prototype)
-          .caption
-            %h3 Salvation Army on iPad App Wireframe
-            .proto-meta
-              .proto-user
-                = link_to prototype.user.name, user_path(prototype.user)
-              .proto-posted
-                = prototype.created_at
-            %ul.proto-tag-list.list-inline
-              %li
-                .btn.btn-default= link_to 'iPad', '#'
-              %li
-                .btn.btn-default= link_to 'wireframe', '#'
+= render partial: 'prototype_list'
