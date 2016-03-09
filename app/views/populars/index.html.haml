@@ -6,10 +6,16 @@
   .container
     .row
       %ul.nav.nav-pills.col-lg-11
-        %li.active{ role: 'presentation' }
-          = link_to 'Popular PROTO', '#'
-        %li{ role: 'presentation' }
-          = link_to 'Newest PROTO', '#'
+        - if params[:controller] == 'populars'
+          %li.active{ role: 'presentation' }
+            = link_to 'Popular PROTO', root_path
+          %li{ role: 'presentation' }
+            = link_to 'Newest PROTO', newests_path
+        - else
+          %li{ role: 'presentation' }
+            = link_to 'Popular PROTO', root_path
+          %li.active{ role: 'presentation' }
+            = link_to 'Newest PROTO', newests_path
       = button_tag 'View Tags', class: 'btn btn-default col-lg-1'
 
 .container.proto-list

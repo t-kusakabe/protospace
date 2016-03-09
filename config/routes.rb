@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'populars#index'
+  resources :newests, only: [:index]
   resources :users, only: [:show]
   resources :prototypes, except: [:index] do
     resources :comments, only: [:create]
