@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'populars#index'
+  root 'prototypes#index'
   resources :newests, only: [:index]
   resources :users, only: [:show]
   resources :prototypes, except: [:index] do
