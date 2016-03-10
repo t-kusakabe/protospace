@@ -1,0 +1,10 @@
+.jumbotron
+  .container.text-center
+    = image_tag("header_logo.png", alt: 'PROTO TYPE - SHARE THE PROTOTYPE', height: '73px')
+
+
+= render partial: 'sort'
+
+.container
+  .row
+    = render partial: 'prototype', collection: @prototypes

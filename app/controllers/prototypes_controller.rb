@@ -1,4 +1,10 @@
 class PrototypesController < ApplicationController
+  before_action :authenticate_user!
+  
+  def index
+    @prototypes = Prototype.order('like_count DESC')
+  end
+
   def show
     @prototype = Prototype.find(params[:id])
     @comments = Comment.where(prototype_id: params[:id])

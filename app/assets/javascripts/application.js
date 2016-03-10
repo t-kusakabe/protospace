@@ -17,7 +17,7 @@
 //= require turbolinks
 //= require_tree .
 
-// top/index.html.haml
+// populars/index.html.haml
 $(document).ready(function(){
   $('.thumbnail').hover(
     function(){
