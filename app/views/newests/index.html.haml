@@ -5,4 +5,6 @@
 
 = render partial: 'sort'
 
-= render partial: 'prototype_list'
+.container
+  .row
+    = render partial: 'prototype', collection: @prototypes
