@@ -14,7 +14,7 @@
         .proto-user
           = link_to prototype.user.name, user_path(prototype.user)
         .proto-posted
-          = prototype.created_at
+          = prototype.created_at.strftime('%b %d')
       %ul.proto-tag-list.list-inline
         %li
           .btn.btn-default= link_to 'iPad', '#'
