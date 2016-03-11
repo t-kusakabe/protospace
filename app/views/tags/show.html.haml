@@ -1,0 +1,18 @@
+.jumbotron
+  .container.text-center
+    = image_tag("header_logo.png", alt: 'PROTO TYPE - SHARE THE PROTOTYPE', height: '73px')
+
+= render partial: 'sort'
+
+.container.proto-list
+  .row
+    .col-sm-12.proto-content
+      .thumbnail
+        = button_tag "#{@tag.name}", class: 'btn btn-tag'
+        .tag-meta
+          = link_to tag_path(@tag), class: 'label label-default tag-list-number' do
+            %i "#{@tag.taggings.count}" Projects
+
+.container.proto-list
+  .row
+    = render partial: 'prototype', collection: @prototypes

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'prototypes#index'
   resources :newests, only: [:index]
   resources :users, only: [:show]
+  resources :tags, only: [:index, :show]
   resources :prototypes, except: [:index] do
     resources :comments, only: [:create]
     resources :likes, only: [:create, :destroy]
