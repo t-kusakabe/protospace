@@ -16,7 +16,6 @@
         .proto-posted
           = prototype.created_at.strftime('%b %d')
       %ul.proto-tag-list.list-inline
-        %li
-          .btn.btn-default= link_to 'iPad', '#'
-        %li
-          .btn.btn-default= link_to 'wireframe', '#'
+        - prototype.tags.each do |tag|
+          %li
+            .btn.btn-default= link_to tag.name, tag_path(tag)
