@@ -39,15 +39,13 @@
     .col-md-3
       %h4 Tag List
       %ul.proto-tag-list.list-inline
-        %li
-          .btn.btn-default= link_to 'iPad', '#'
-        %li
-          .btn.btn-default= link_to 'wireframe', '#'
+        = render partial: 'tag', collection: @prototype.tags
+
   -# comment
   .row.proto-comments
     %h4.col-md-12
       Comments
-      %span.num (10)
+      %span.num= @comments.size
       %br
       = form_tag prototype_comments_path(params[:id]), method: :post, remote: true do
         .col-md-12
