@@ -27,3 +27,22 @@ $(function(){
         $('.operation_list').css('display', 'none');
     });
 });
+
+// 画像upload時に表示
+ var openFile = function(event, select) {
+   var input = event.target;
+
+   var reader = new FileReader();
+   reader.onload = function(){
+     var dataURL = reader.result;
+     if(select == 'main'){
+       var output = document.getElementById('main_thumbnail');
+     }else if(select == 'sub_thumbnail1'){
+       var output = document.getElementById('sub_thumbnail1');
+     }else{
+       var output = document.getElementById('sub_thumbnail2');
+     }
+     output.src = dataURL;
+   };
+   reader.readAsDataURL(input.files[0]);
+ };
