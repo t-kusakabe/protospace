@@ -13,6 +13,10 @@
           = link_to tag_path(@tag), class: 'label label-default tag-list-number' do
             %i "#{@tag.taggings.count}" Projects
 
-.container.proto-list
-  .row
-    = render partial: 'prototype', collection: @prototypes
+#prototypes
+  .container.proto-list
+    .row
+      .page
+        = render partial: 'prototype', collection: @prototypes
+
+= paginate @prototypes

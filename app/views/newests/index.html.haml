@@ -5,6 +5,10 @@
 
 = render partial: 'sort'
 
-.container
-  .row
-    = render partial: 'prototype', collection: @prototypes
+#prototypes
+  .container
+    .row
+      .page
+        = render partial: 'prototype', collection: @prototypes
+
+= paginate @prototypes
