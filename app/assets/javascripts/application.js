@@ -19,13 +19,11 @@
 //= require_tree .
 
 // populars/index.html.haml
-$(document).ready(function(){
-  $('.thumbnail').hover(
-    function(){
-      $(this).find('.operation_list').css('display', 'block');
-    },
-    function(){
-      $('.operation_list').css('display', 'none');
-    }
-  );
+$(function(){
+    $(document).on('mouseenter', '.thumbnail', function() {
+        $(this).find('.operation_list').css('display', 'block');
+    });
+    $(document).on('mouseleave', '.thumbnail', function(){
+        $('.operation_list').css('display', 'none');
+    });
 });
