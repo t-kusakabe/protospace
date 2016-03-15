@@ -3,12 +3,12 @@
     = image_tag("header_logo.png", alt: 'PROTO TYPE - SHARE THE PROTOTYPE', height: '73px')
 
 
-= render partial: 'sort'
+= render partial: 'prototypes/sort'
 
 #prototypes
   .container
     .row
       .page
-        = render partial: 'prototype', collection: @prototypes
+        = render partial: 'prototypes/prototype', collection: @prototypes
 
 = paginate @prototypes
