@@ -39,8 +39,10 @@ $(function(){
        var output = document.getElementById('main_thumbnail');
      }else if(select == 'sub_thumbnail1'){
        var output = document.getElementById('sub_thumbnail1');
-     }else{
+     }else if(select == 'sub_thumbnail2'){
        var output = document.getElementById('sub_thumbnail2');
+     }else {
+       var output = document.getElementById('user_thumbnail');
      }
      output.src = dataURL;
    };

@@ -9,13 +9,15 @@
           .user-name_image.row
             .user-name.col-md-10
               = f.text_field :name, placeholder: 'Username', autofocus: true
-           
-            .user-image.col-md-2
-              %button.btn.btn-primary Add image
-              = f.file_field :avatar 
-          
+
+            .media
+              .user-image
+                = image_tag('noimage.png', alt: '64x64', data: { holder: { rendered: 'true' }}, id: 'user_thumbnail', class: 'media-object', style: 'width: 72px; height: 72px; border-radius: 100%;')
+                %button.btn.btn-primary Add image
+                = f.file_field :avatar, accept: 'image/*', onchange: "openFile(event, 'user_thumbnail')"
+
           .user-email= f.email_field :email, placeholder: 'E-Mail'
-          
+
           .user-password= f.password_field :password, placeholder: 'Password'
 
           .user-password= f.password_field :password_confirmation, placeholder: 'Password'
@@ -32,7 +34,7 @@
             .user-name.col-md-12
               = f.text_area :position, placeholder: 'Position'
 
-          %h4 Works 
+          %h4 Works
           .user-name_image.row
             .user-name.col-md-12
               = f.text_area :occupation, placeholder: 'Works'
