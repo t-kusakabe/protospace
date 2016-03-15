@@ -1,0 +1,10 @@
+.filter-nav
+  .container
+    .row
+      %ul.nav.nav-pills.col-lg-11
+        %li{ role: 'presentation' }
+          = link_to 'Popular PROTO', root_path
+        %li.active{ role: 'presentation' }
+          = link_to 'Newest PROTO', newests_path
+      = button_tag class: 'btn btn-default col-lg-1' do
+        = link_to 'View Tags', tags_path
