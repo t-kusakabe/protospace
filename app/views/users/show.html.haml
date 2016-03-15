@@ -5,9 +5,9 @@
         = image_tag(current_user.avatar.url, alt: '64x64', data: { holder: { rendered: 'true' }}, class: 'media-object', style: 'width: 64px; height: 64px;')
       .media-body
         %h4#top-aligned-media.media-heading
-          Top aligned media
+          = current_user.name
           %span.label.label-default.project-number
-            29
+            = @prototype_num.length
             %i Projects
         .proto-user
           %span.degree= current_user.name
@@ -19,22 +19,10 @@
             %h4 Works
             %p= current_user.occupation
 
-.container.proto-list
-  .row
-    - @prototypes.each do |prototype|
-      .col-sm-4.col-md-3.proto-content
-        .thumbnail
-          = link_to image_tag(prototype.thumbnails.first.thumbnail.url), prototype_path
-          .caption
-            %h3= prototype.title
-            .proto-meta
-              .proto-date
-                = prototype.user.name
-            %ul.proto-tag-list.list-inline
-              %li
-                = link_to 'iPad', '#', class: 'btn btn-default'
-              %li
-                = link_to 'wireframe', '#', class: 'btn btn-default'
-  .text-center
-    %ul.pagination
-      = paginate(@prototypes)
+#prototypes
+  .container
+    .row
+      .page
+        = render partial: 'prototype', collection: @prototypes
+
+= paginate @prototypes
