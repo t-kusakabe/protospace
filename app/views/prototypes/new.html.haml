@@ -8,25 +8,25 @@
         .row
           .col-md-12
             .cover-image-upload
-              = image_tag(@prototype.thumbnails.first.thumbnail.url) if @prototype.thumbnails.first.main?
+              = image_tag(@prototype.thumbnails.first.thumbnail.url, id: 'main_thumbnail')
               = f.fields_for :thumbnails do |thumbnails_f|
                 = thumbnails_f.hidden_field :status, value: "main"
-                = thumbnails_f.file_field :thumbnail
+                = thumbnails_f.file_field :thumbnail, accept: 'image/*', onchange: "openFile(event, 'main')"
                 = thumbnails_f.hidden_field :thumbnail_cache
           .col-md-12
             %ul.proto-sub-list.list-group
               %li.list-group-item.col-md-4
                 .image-upload
-                  = image_tag(@prototype.thumbnails.second.thumbnail.url) if @prototype.thumbnails.second.present?
+                  = image_tag(@prototype.thumbnails.second.thumbnail.url, id: 'sub_thumbnail1')
                   = f.fields_for :thumbnails do |thumbnails_f|
                     = thumbnails_f.hidden_field :status, value: "sub"
-                    = thumbnails_f.file_field :thumbnail
+                    = thumbnails_f.file_field :thumbnail, accept: 'image/*', onchange: "openFile(event, 'sub_thumbnail1')"
               %li.list-group-item.col-md-4
                 .image-upload
-                  = image_tag(@prototype.thumbnails.third.thumbnail.url) if @prototype.thumbnails.third.present?
+                  = image_tag(@prototype.thumbnails.third.thumbnail.url, id: 'sub_thumbnail2')
                   = f.fields_for :thumbnails do |thumbnails_f|
                     = thumbnails_f.hidden_field :status, value: "sub"
-                    = thumbnails_f.file_field :thumbnail
+                    = thumbnails_f.file_field :thumbnail, accept: 'image/*', onchange: "openFile(event, 'sub_thumbnail2')"
               %li.list-group-item.col-md-4
                 .image-upload-plus
                   %span +

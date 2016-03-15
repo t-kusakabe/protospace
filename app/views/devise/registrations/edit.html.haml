@@ -1,31 +1,39 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "off"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+  .container.user-new{ action: '' }
+    .col-md-8.col-md-offset-2
+      %header.row.user-nav.row
+        .col-md-12
+          %h2 Edit User
+
+          .user-name_image.row
+            .user-name.col-md-10
+              = f.text_field :name, placeholder: 'Username', autofocus: true
+
+            .media
+              .user-image
+                = image_tag(current_user.avatar.url, alt: '64x64', data: { holder: { rendered: 'true' }}, id: 'user_thumbnail', class: 'media-object', style: 'width: 72px; height: 72px; border-radius: 100%;')
+                %button.btn.btn-primary Add image
+                = f.file_field :avatar, accept: 'image/*', onchange: "openFile(event, 'user_thumbnail')"
+
+          .user-email= f.email_field :email, placeholder: 'E-Mail'
+
+          .col-md-12
+          %h4 Profile
+          .user-user-profile.row
+            .user-name.col-md-12
+              = f.text_area :profile, placeholder: 'Profile'
+
+          .col-md-12
+          %h4 Position
+          .user-user-member.row
+            .user-name.col-md-12
+              = f.text_area :position, placeholder: 'Position'
+
+          %h4 Works
+          .user-name_image.row
+            .user-name.col-md-12
+              = f.text_area :occupation, placeholder: 'Works'
+          .row.text-center.user-btn
+            .form-actions
+              = f.submit value: 'Save', class: "button btn btn-lg btn-primary btn-block"

@@ -2,7 +2,7 @@
   .container.text-center
     = image_tag("header_logo.png", alt: 'PROTO TYPE - SHARE THE PROTOTYPE', height: '73px')
 
-= render partial: 'sort'
+= render partial: 'prototypes/sort'
 
 .container.proto-list
   .row
@@ -13,6 +13,10 @@
           = link_to tag_path(@tag), class: 'label label-default tag-list-number' do
             %i "#{@tag.taggings.count}" Projects
 
-.container.proto-list
-  .row
-    = render partial: 'prototype', collection: @prototypes
+#prototypes
+  .container.proto-list
+    .row
+      .page
+        = render partial: 'prototypes/prototype', collection: @prototypes
+
+= paginate @prototypes

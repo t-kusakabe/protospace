@@ -8,21 +8,21 @@
         .row
           .col-md-12
             .cover-image-upload
+              = image_tag(@prototype.thumbnails.first.thumbnail.url, id: 'main_thumbnail')
               = f.fields_for :thumbnails, @prototype.thumbnails[0] do |thumbnails_f|
-                = thumbnails_f.hidden_field :status, value: "main"
-                = thumbnails_f.file_field :thumbnail
+                = thumbnails_f.file_field :thumbnail, accept: 'image/*', onchange: "openFile(event, 'main')"
           .col-md-12
             %ul.proto-sub-list.list-group
               %li.list-group-item.col-md-4
                 .image-upload
+                  = image_tag(@prototype.thumbnails.second.thumbnail.url, id: 'sub_thumbnail1') if @prototype.thumbnails.second.present?
                   = f.fields_for :thumbnails, @prototype.thumbnails[1] do |thumbnails_f|
-                    = thumbnails_f.hidden_field :status, value: "sub"
-                    = thumbnails_f.file_field :thumbnail
+                    = thumbnails_f.file_field :thumbnail, accept: 'image/*', onchange: "openFile(event, 'sub_thumbnail1')"
               %li.list-group-item.col-md-4
                 .image-upload
+                  = image_tag(@prototype.thumbnails.third.thumbnail.url, id: 'sub_thumbnail2') if @prototype.thumbnails.third.present?
                   = f.fields_for :thumbnails, @prototype.thumbnails[2] do |thumbnails_f|
-                    = thumbnails_f.hidden_field :status, value: "sub"
-                    = thumbnails_f.file_field :thumbnail
+                    = thumbnails_f.file_field :thumbnail, accept: 'image/*', onchange: "openFile(event, 'sub_thumbnail2')"
               %li.list-group-item.col-md-4
                 .image-upload-plus
                   %span +
@@ -34,10 +34,10 @@
             %h4 Tag List
             .row
               .col-md-3
-                %input{ type: 'text', placeholder: 'Web Design' }/
+                = text_field_tag 'prototype[tag][]', '', placeholder: 'Web Design'
               .col-md-3
-                %input{ type: 'text', placeholder: 'UI' }/
+                = text_field_tag 'prototype[tag][]', '', placeholder: 'UI'
               .col-md-3
-                %input{ type: 'text', placeholder: 'Application' }/
+                = text_field_tag 'prototype[tag][]', '', placeholder: 'Application'
         .row.text-center.proto-btn
           = f.submit 'Publish', class: 'btn btn-lg btn-primary btn-block'
