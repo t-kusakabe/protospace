@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @prototype_num = Prototype.where(user_id: current_user.id)
-    @prototypes = @prototype_num.page(params[:page]).per(5)
+    @prototypes = Prototype.where(user_id: params[:id]).page(params[:page]).per(5)
+    @user = User.find(params[:id])
   end
 end

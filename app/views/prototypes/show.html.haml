@@ -10,8 +10,8 @@
           %h4#top-aligned-media.media-heading
             = @prototype.title
           .proto-user
-            = link_to current_user.name, user_path
-            %span.degree= current_user.profile
+            = link_to @prototype.user.name, user_path(@prototype.user)
+            %span.degree= @prototype.user.profile
 
     -# LIKE
     .col-md-6.text-right.like_button
