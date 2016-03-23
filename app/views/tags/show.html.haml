@@ -6,17 +6,17 @@
 
 .container.proto-list
   .row
-    .col-sm-12.proto-content
+    .col-sm-12
       .thumbnail
         = button_tag "#{@tag.name}", class: 'btn btn-tag'
         .tag-meta
           = link_to tag_path(@tag), class: 'label label-default tag-list-number' do
             %i "#{@tag.taggings.count}" Projects
 
-
-.container
-  .row
-    .page
-      = render partial: 'prototypes/prototype', collection: @prototypes
+#prototypes
+  .container
+    .row
+      .page
+        = render partial: 'prototypes/prototype', collection: @prototypes
 
 = paginate @prototypes

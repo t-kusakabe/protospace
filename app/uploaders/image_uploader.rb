@@ -2,7 +2,7 @@
 
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
-  storage :file
+  storage :fog
   process resize_to_fit: [800, 430]
 
   def store_dir
