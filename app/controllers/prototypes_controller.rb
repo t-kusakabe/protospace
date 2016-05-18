@@ -1,6 +1,4 @@
 class PrototypesController < ApplicationController
-  before_action :authenticate_user!
-
   def index
     @prototypes = Prototype.page(params[:page]).per(5).order('like_count DESC')
   end
