@@ -30,6 +30,11 @@
               %li.list-group-item.col-md-4
                 .image-upload-plus
                   %span +
+                .image-upload.do_not_show
+                  = image_tag(@prototype.thumbnails.third.thumbnail.url, id: 'sub_thumbnail3')
+                  = f.fields_for :thumbnails do |thumbnails_f|
+                    = thumbnails_f.hidden_field :status, value: "sub"
+                    = thumbnails_f.file_field :thumbnail, accept: 'image/*', onchange: "openFile(event, 'sub_thumbnail3')"
         .row.proto-description
           .col-md-12
             = f.text_field :catch_copy, placeholder: "Catch Copy #{flash[:alert]}", autocomplete: 'off', maxlength: '255'
