@@ -42,6 +42,8 @@ $(function(){
        var output = document.getElementById('sub_thumbnail1');
      }else if(select == 'sub_thumbnail2'){
        var output = document.getElementById('sub_thumbnail2');
+     }else if(select == 'sub_thumbnail3'){
+       var output = document.getElementById('sub_thumbnail3');
      }else {
        var output = document.getElementById('user_thumbnail');
      }
@@ -49,3 +51,12 @@ $(function(){
    };
    reader.readAsDataURL(input.files[0]);
  };
+
+ // prototypeのthumbnailを追加で投稿
+ $(function(){
+   $('.image-upload-plus').click(function(){
+     console.log('hoge');
+     $(this).addClass('do_not_show');
+     $('.image-upload.do_not_show').removeClass('do_not_show');
+   });
+ });
