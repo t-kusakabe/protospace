@@ -16,17 +16,15 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    prototype = current_user.prototypes.new(create_params)
-    if prototype.save
+    @prototype = current_user.prototypes.new(create_params)
+    if @prototype.save
       redirect_to root_path
     else
-      @prototype = Prototype.new(create_params)
       @prototype.thumbnails.build
       @prototype.valid?
       flash.now[:alert] = 'Not Input'
       render :new
     end
-    binding.pry
   end
 
   def edit
