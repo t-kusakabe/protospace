@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
   def index
-    @prototypes = Prototype.page(params[:page]).per(5).order('like_count DESC')
+    @prototypes = Prototype.page(params[:page]).per(5).order('like_count DESC').includes(:user, :tags)
   end
 
   def show
@@ -12,7 +12,7 @@ class PrototypesController < ApplicationController
 
   def new
     @prototype = Prototype.new
-    4.times{ @prototype.thumbnails.build }
+    @prototype.thumbnails.build
   end
 
   def create
@@ -26,6 +26,7 @@ class PrototypesController < ApplicationController
       flash.now[:alert] = 'Not Input'
       render :new
     end
+    binding.pry
   end
 
   def edit
