@@ -1,40 +1,64 @@
-# DBdesign
+# table
 
-## Model
-+ user
-  + name
-  + email
-  + password
-  + profile
-  + position
-  + occupation
-  + avatar
+### prototypes
+|name|type|
+|:-:|:-:|
+|title|string|
+|catch_copy|text|
+concept|text|
+|user_id|references
+|like_count|int|
 
-+ prototype
-  + title
-  + catch_copy
-  + concept
-  + user_id
+### thumbnails
+|name|type|
+|:-:|:-:|
+|status|int|
+|thumbnail|text|
+|prototype_id|references|
 
-+ proto_thumbnail
-  + thumbnail
-  + prototype_id
+### users
+|name|type|
+|:-:|:-:|
+|name|string|
+|email|string|
+|password|string|
+|profile|text|
+|position|string|
+|ocapation|string|
+|avatar|string|
 
-+ protocomment
-  + comment
-  + user_id
-  + prototype_id
+### likes
+|name|type|
+|:-:|:-:|
+|user_id|references|
+|prototype_id|references|
 
-+ like
-  + user_id
-  + prototype_id
+### comment
+|name|type|
+|:-:|:-:|
+|content|string|
+|prototype_id|references|
+|user_id|references|
 
+# association
+## prototypes
++ belongs_to :user
++ has_many :thumbnails
++ has_many :comments
++ has_many :likes
 
-## Association
-+ user has_many prototypes
-+ prototype belongs_to user
-+ prototype has_many protocomments
-+ protocomments belongs_to prototype
-+ prototype belongs_to tag
-+ like belongs_to user
-+ like belongs_to prototype
+## thumbnails
++ belongs_to :prototype
+
+## users
++ has_many :prototypes
++ has_many :comments
++ has_many :likes
+
+## comments
++ belongs_to :user
++ belongs_to :prototype
+
+## likes
++ belongs_to :user
++ belongs_to :prototype
