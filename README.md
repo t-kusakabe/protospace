@@ -1,6 +1,6 @@
-#DBdesign
+# DBdesign
 
-##Model
+## Model
 + user
   + name
   + email
@@ -30,7 +30,7 @@
   + prototype_id
 
 
-##Association
+## Association
 + user has_many prototypes
 + prototype belongs_to user
 + prototype has_many protocomments
@@ -38,4 +38,3 @@
 + prototype belongs_to tag
 + like belongs_to user
 + like belongs_to prototype
-

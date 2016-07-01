@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
   def index
-    @prototypes = Prototype.page(params[:page]).per(5).order('like_count DESC')
+    @prototypes = Prototype.page(params[:page]).per(5).order('like_count DESC').includes(:user, :tags)
   end
 
   def show
@@ -12,15 +12,14 @@ class PrototypesController < ApplicationController
 
   def new
     @prototype = Prototype.new
-    4.times{ @prototype.thumbnails.build }
+    @prototype.thumbnails.build
   end
 
   def create
-    prototype = current_user.prototypes.new(create_params)
-    if prototype.save
+    @prototype = current_user.prototypes.new(prototype_params)
+    if @prototype.save
       redirect_to root_path
     else
-      @prototype = Prototype.new(create_params)
       @prototype.thumbnails.build
       @prototype.valid?
       flash.now[:alert] = 'Not Input'
@@ -34,7 +33,7 @@ class PrototypesController < ApplicationController
 
   def update
     @prototype = Prototype.find(params[:id])
-    @prototype.update(create_params)
+    @prototype.update(prototype_params)
     redirect_to :root
   end
 
@@ -44,7 +43,7 @@ class PrototypesController < ApplicationController
   end
 
   private
-  def create_params
-    params.require(:prototype).permit(:title, :catch_copy, :concept, thumbnails_attributes: [:id, :thumbnail, :status, :thumbnail_cache]).merge(tag_list: params[:prototype][:tag])
+  def prototype_params
+    params.require(:prototype).permit(:title, :catch_copy, :concept, thumbnails_attributes: [:id, :thumbnail, :status]).merge(tag_list: params[:prototype][:tag])
   end
 end

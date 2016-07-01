@@ -5,36 +5,40 @@
       %header.row.user-nav.row
         .col-md-12
           .proto-new-title= f.text_field :title, placeholder: "Title #{flash[:alert]}", autocomplete: 'off'
+        -# main画像
         .row
           .col-md-12
             .cover-image-upload
-              = image_tag(@prototype.thumbnails.first.thumbnail.url, id: 'main_thumbnail')
+              = image_tag('', id: 'main_thumbnail')
               = f.fields_for :thumbnails do |thumbnails_f|
                 = thumbnails_f.hidden_field :status, value: "main"
                 = thumbnails_f.file_field :thumbnail, accept: 'image/*', onchange: "openFile(event, 'main')"
-                = thumbnails_f.hidden_field :thumbnail_cache
-          .col-md-12
+
+            -# sub画像
             %ul.proto-sub-list.list-group
               %li.list-group-item.col-md-4
                 .image-upload
-                  = image_tag(@prototype.thumbnails.second.thumbnail.url, id: 'sub_thumbnail1')
+                  = image_tag('', id: 'sub_thumbnail1')
                   = f.fields_for :thumbnails do |thumbnails_f|
                     = thumbnails_f.hidden_field :status, value: "sub"
                     = thumbnails_f.file_field :thumbnail, accept: 'image/*', onchange: "openFile(event, 'sub_thumbnail1')"
+              -# sub画像
               %li.list-group-item.col-md-4
                 .image-upload
-                  = image_tag(@prototype.thumbnails.third.thumbnail.url, id: 'sub_thumbnail2')
+                  = image_tag('', id: 'sub_thumbnail2')
                   = f.fields_for :thumbnails do |thumbnails_f|
                     = thumbnails_f.hidden_field :status, value: "sub"
                     = thumbnails_f.file_field :thumbnail, accept: 'image/*', onchange: "openFile(event, 'sub_thumbnail2')"
+              -# sub画像
               %li.list-group-item.col-md-4
                 .image-upload-plus
                   %span +
                 .image-upload.do_not_show
-                  = image_tag(@prototype.thumbnails.third.thumbnail.url, id: 'sub_thumbnail3')
+                  = image_tag('', id: 'sub_thumbnail3')
                   = f.fields_for :thumbnails do |thumbnails_f|
                     = thumbnails_f.hidden_field :status, value: "sub"
                     = thumbnails_f.file_field :thumbnail, accept: 'image/*', onchange: "openFile(event, 'sub_thumbnail3')"
+
         .row.proto-description
           .col-md-12
             = f.text_field :catch_copy, placeholder: "Catch Copy #{flash[:alert]}", autocomplete: 'off', maxlength: '255'
