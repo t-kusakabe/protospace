@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 20160310093460) do
   end
 
   create_table "prototypes", force: :cascade do |t|
-    t.text     "title",      limit: 65535
-    t.string   "catch_copy", limit: 255
-    t.string   "concept",    limit: 255
+    t.string   "title",      limit: 255
+    t.text     "catch_copy", limit: 65535
+    t.text     "concept",    limit: 65535
     t.integer  "user_id",    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"

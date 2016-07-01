@@ -3,7 +3,7 @@ class CreateThumbnails < ActiveRecord::Migration
     create_table :thumbnails do |t|
       t.integer :status
       t.string :thumbnail
-      t.integer :prototype_id
+      t.references :prototype
       t.timestamps
     end
   end

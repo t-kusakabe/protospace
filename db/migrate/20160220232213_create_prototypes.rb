@@ -1,10 +1,10 @@
 class CreatePrototypes < ActiveRecord::Migration
   def change
     create_table :prototypes do |t|
-      t.text :title
-      t.string :catch_copy
-      t.string :concept
-      t.integer :user_id
+      t.string :title
+      t.text :catch_copy
+      t.text :concept
+      t.references :user
       t.timestamps
     end
   end
