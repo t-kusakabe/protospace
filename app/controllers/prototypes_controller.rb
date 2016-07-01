@@ -16,7 +16,7 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    @prototype = current_user.prototypes.new(create_params)
+    @prototype = current_user.prototypes.new(prototype_params)
     if @prototype.save
       redirect_to root_path
     else
@@ -33,7 +33,7 @@ class PrototypesController < ApplicationController
 
   def update
     @prototype = Prototype.find(params[:id])
-    @prototype.update(create_params)
+    @prototype.update(prototype_params)
     redirect_to :root
   end
 
@@ -43,7 +43,7 @@ class PrototypesController < ApplicationController
   end
 
   private
-  def create_params
+  def prototype_params
     params.require(:prototype).permit(:title, :catch_copy, :concept, thumbnails_attributes: [:id, :thumbnail, :status]).merge(tag_list: params[:prototype][:tag])
   end
 end
