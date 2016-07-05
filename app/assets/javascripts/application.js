@@ -55,7 +55,6 @@ $(function(){
  // prototypeのthumbnailを追加で投稿
  $(function(){
    $('.image-upload-plus').click(function(){
-     console.log('hoge');
      $(this).addClass('do_not_show');
      $('.image-upload.do_not_show').removeClass('do_not_show');
    });
