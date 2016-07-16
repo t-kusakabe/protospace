@@ -42,18 +42,18 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'better_errors'
   gem 'bullet'
+  gem 'pry-rails'
+  gem 'erb2haml'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
 
-gem 'pry-rails'
 gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'devise'
-gem 'erb2haml'
 gem 'carrierwave'
-gem 'rmagick'
+gem 'rmagick', require: 'RMagick'
 gem 'kaminari'
 gem 'jquery-turbolinks'
 gem 'acts-as-taggable-on', '~> 3.4'
