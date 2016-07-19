@@ -1,11 +1,11 @@
 class PrototypesController < ApplicationController
   def index
-    @prototypes = Prototype.page(params[:page]).per(5).order('like_count DESC').includes(:user, :tags)
+    @prototypes = Prototype.page(params[:page]).per(5).order('like_count DESC').includes(:user)
   end
 
   def show
     @prototype = Prototype.find(params[:id])
-    @comments = Comment.where(prototype_id: params[:id])
+    @comments = Comment.where(prototype_id: params[:id]).includes(:user)
     @likes = Like.where(prototype_id: params[:id]).count
     @like = Like.where(user_id: current_user.id, prototype_id: params[:id])
   end
