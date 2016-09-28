@@ -1,10 +1,9 @@
-%h1= @thumbnail
 = form_for @prototype do |f|
   .container.proto-new
     .col-md-8.col-md-offset-2
       %header.row.user-nav.row
         .col-md-12
-          .proto-new-title= f.text_field :title, placeholder: "Title #{flash[:alert]}", autocomplete: 'off'
+          .proto-new-title= f.text_field :title, placeholder: "Title #{flash[:alert]}", autofocus: true, autocomplete: 'off'
         -# main画像
         .row
           .col-md-12

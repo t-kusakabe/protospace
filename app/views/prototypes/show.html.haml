@@ -10,6 +10,7 @@
           %h4#top-aligned-media.media-heading
             = @prototype.title
           .proto-user
+            by
             = link_to @prototype.user.name, user_path(@prototype.user)
             %span.degree= @prototype.user.profile
 
@@ -47,7 +48,8 @@
       Comments
       %span.num= @comments.size
       %br
-      = form_tag prototype_comments_path(params[:id]), class: 'form-group', method: :post, remote: true do
+
+      = form_tag prototype_comments_path(params[:id]), class: 'form-group', method: :post,   remote: true do
         .col-md-12
           = text_area_tag :content, '', placeholder: 'comment', maxlength: 200, css: 'form-control'
           = hidden_field_tag :prototype_id, params[:id]

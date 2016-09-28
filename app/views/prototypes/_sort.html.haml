@@ -2,9 +2,9 @@
   .container
     .row
       %ul.nav.nav-pills.col-lg-11
-        %li.active{ role: 'presentation' }
+        %li{ role: 'presentation', class: "#{'active' if controller.controller_name == 'prototypes'}" }
           = link_to 'Popular PROTO', root_path
-        %li{ role: 'presentation' }
+        %li{ role: 'presentation', class: "#{'active' if controller.controller_name == 'newests'}" }
           = link_to 'Newest PROTO', newests_path
       = button_tag class: 'btn btn-default col-lg-1' do
         = link_to 'View Tags', tags_path
